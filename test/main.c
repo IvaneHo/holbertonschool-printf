@@ -1,16 +1,19 @@
 #include "../main.h"
-#include <stdio.h> /* pour comparer avec printf */
-#include <limits.h>
+#include <stdio.h>
 
 int main(void)
 {
 	int len1, len2;
 
-	len1 = _printf("Hello %s ! Il fait %c aujourd'hui %%.\n", "toi", 'b');
-	len2 = printf("Hello %s ! Il fait %c aujourd'hui %%.\n", "toi", 'b');
+	len1 = _printf("Char: %c | String: %s | Percent: %%\n", 'H', "Hello");
+	len2 = printf("Char: %c | String: %s | Percent: %%\n", 'H', "Hello");
 
-	_printf("Longueur (custom): %d\n", len1);
-	printf("Longueur (printf): %d\n", len2);
+	_printf("Len _printf: %d\n", len1);
+	printf("Len printf: %d\n", len2);
+
+	_printf("Test %%d: %d | %%i: %i\n", 123, -456);
+	_printf("Just %% at end: ");
+	_printf("%"); /* Should return -1 */
 
 	return (0);
 }
