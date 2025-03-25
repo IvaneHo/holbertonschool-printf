@@ -80,13 +80,16 @@ int handle_format(const char *format, va_list args, int i, int *count)
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int i = 0, count = 0;
+	va_list args; /* Liste d'arguments variadiques */
+	int i = 0; /* Index pour parcourir la chaîne */
+	int count = 0; /* Compteur de caractères affichés */
 
 	if (format == NULL)
-		return (-1);
+		return (-1); /* Cas où la chaîne est nulle */
 
-	va_start(args, format);
+	va_start(args, format); /* Initialisation des arguments */
+
+	/* Boucle sur chaque caractère de la chaîne */
 	while (format[i])
 	{
 		if (format[i] == '%')
