@@ -35,7 +35,7 @@ int print_string(va_list args)
 }
 
 /**
- * print_percent - Affiche le caractère %
+ * print_percent - Affiche le caractère '%'
  *
  * Return: 1
  */
@@ -45,13 +45,13 @@ int print_percent(void)
 }
 
 /**
- * handle_format - Gère les formats %c, %s, %, %d, %i
- * @format: chaîne format
+ * handle_format - Gère %c, %s et %%
+ * @format: chaîne de format
  * @args: liste d'arguments
- * @i: position actuelle
- * @count: compteur de caractères
+ * @i: index actuel dans la chaîne
+ * @count: pointeur vers compteur total
  *
- * Return: nouvelle position dans format
+ * Return: nouvel index après traitement
  */
 int handle_format(const char *format, va_list args, int i, int *count)
 {
@@ -61,8 +61,6 @@ int handle_format(const char *format, va_list args, int i, int *count)
 		*count += print_string(args);
 	else if (format[i + 1] == '%')
 		*count += print_percent();
-	else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-		*count += print_int(args);
 	else
 	{
 		_putchar('%');
@@ -73,10 +71,10 @@ int handle_format(const char *format, va_list args, int i, int *count)
 }
 
 /**
- * _printf - Affiche une chaîne formatée
- * @format: chaîne contenant texte + formats
+ * _printf - Affiche une chaîne avec formats %c, %s, %%
+ * @format: chaîne à afficher
  *
- * Return: nombre de caractères affichés, ou -1 si erreur
+ * Return: nombre de caractères affichés
  */
 int _printf(const char *format, ...)
 {
@@ -89,15 +87,8 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
-		{
-			if (format[i + 1] == '\0')
-			{
-				va_end(args);
-				return (-1);
-			}
+		if (format[i] == '%' && format[i + 1])
 			i = handle_format(format, args, i, &count);
-		}
 		else
 		{
 			_putchar(format[i]);
