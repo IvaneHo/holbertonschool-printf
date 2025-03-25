@@ -35,7 +35,7 @@ int print_string(va_list args)
 }
 
 /**
- * print_percent - Affiche le caractère '%'
+ * print_percent - Affiche le caractère %
  *
  * Return: 1
  */
@@ -45,13 +45,13 @@ int print_percent(void)
 }
 
 /**
- * handle_format - Gère %c, %s et %%
- * @format: chaîne de format
+ * handle_format - Gère les formats %c, %s, %, %d, %i
+ * @format: chaîne format
  * @args: liste d'arguments
- * @i: index actuel dans la chaîne
- * @count: pointeur vers compteur total
+ * @i: position actuelle
+ * @count: compteur de caractères
  *
- * Return: nouvel index après traitement
+ * Return: nouvelle position dans format
  */
 int handle_format(const char *format, va_list args, int i, int *count)
 {
@@ -61,6 +61,8 @@ int handle_format(const char *format, va_list args, int i, int *count)
 		*count += print_string(args);
 	else if (format[i + 1] == '%')
 		*count += print_percent();
+	else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+		*count += print_int(args);
 	else
 	{
 		_putchar('%');
@@ -71,28 +73,31 @@ int handle_format(const char *format, va_list args, int i, int *count)
 }
 
 /**
- * _printf - Affiche une chaîne avec formats %c, %s, %%
- * @format: chaîne à afficher
+ * _printf - Affiche une chaîne formatée
+ * @format: chaîne contenant texte + formats
  *
- * Return: nombre de caractères affichés
+ * Return: nombre de caractères affichés, ou -1 si erreur
  */
 int _printf(const char *format, ...)
 {
-	va_list args; /* List of variadic arguments */
-	int i = 0; /* Index to browse the string */
-	int count = 0; /* Displayed character count */
+	va_list args;
+	int i = 0, count = 0;
 
 	if (format == NULL)
-		return (-1); /* Cas où la chaîne est nulle */
+		return (-1);
 
-	va_start(args, format); /* Initialisation des arguments */
-
-	/* Boucle sur chaque caractère de la chaîne */
+	va_start(args, format);
 	while (format[i])
 	{
-		/* Si on rencontre un %, on regarde le caractère suivant */
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] == '%')
+		{
+			if (format[i + 1] == '\0')
+			{
+				va_end(args);
+				return (-1);
+			}
 			i = handle_format(format, args, i, &count);
+		}
 		else
 		{
 			_putchar(format[i]);
