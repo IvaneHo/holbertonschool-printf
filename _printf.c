@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * print_char - Affiche un caractère
- * @args: liste d'arguments
+ * print_char - Prints a char
+ * @args: A list of arguments pointing to 
+ *			the character to be printed
  *
  * Return: 1
  */
@@ -14,8 +15,9 @@ int print_char(va_list args)
 }
 
 /**
- * print_string - Affiche une chaîne de caractères
- * @args: liste d'arguments
+ * print_string - Prints a string
+ * @args: A list of arguments pointing to
+ * 			the string to be printed
  *
  * Return: nombre de caractères affichés
  */
