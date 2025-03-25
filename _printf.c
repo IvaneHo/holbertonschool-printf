@@ -78,9 +78,9 @@ int handle_format(const char *format, va_list args, int i, int *count)
  */
 int _printf(const char *format, ...)
 {
-	va_list args; /* Liste d'arguments variadiques */
-	int i = 0; /* Index pour parcourir la chaîne */
-	int count = 0; /* Compteur de caractères affichés */
+	va_list args; /* List of variadic arguments */
+	int i = 0; /* Index to browse the string */
+	int count = 0; /* Displayed character count */
 
 	if (format == NULL)
 		return (-1); /* Cas où la chaîne est nulle */
