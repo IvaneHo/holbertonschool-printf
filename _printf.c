@@ -26,36 +26,8 @@ int _printf(const char *format, ...)
 		/* Si on rencontre un %, on regarde le caractère suivant */
 		if (format[i] == '%' && format[i + 1])
 		{
-			i++;
-			if (format[i] == 'c')
-			{
-				char c = va_arg(args, int);
-				write(1, &c, 1);
-				count++;
-			}
-			else if (format[i] == 's')
-			{
-				str = va_arg(args, char *);
-				if (!str)
-					str = "(null)";
-				while (*str)
-				{
-					write(1, str, 1);
-					str++;
-					count++;
-				}
-			}
-			else if (format[i] == '%')
-			{
-				write(1, "%", 1);
-				count++;
-			}
-			else
-			{
-				write(1, "%", 1);
-				write(1, &format[i], 1);
-				count += 2;
-			}
+			/* Délègue le traitement du format à une autre fonction */
+			i = handle_format(format, args, i, &count);
 		}
 		else
 		{
