@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * print_int - Affiche un entier signé (%d ou %i)
- * @args: Liste d'arguments
+ * print_int - Prints a signed integer in decimal format (%d or %i)
+ * @args: List of arguments containing the integer to print
  *
- * Return: Nombre de caractères affichés
+ * Return: Number of characters printed (including the '-' sign if applicable)
  */
 int print_int(va_list args)
 {
@@ -25,10 +25,10 @@ int print_int(va_list args)
 }
 
 /**
- * print_number - Affiche un entier non signé (récursif)
- * @num: Nombre positif à afficher
+ * print_number - Prints an unsigned integer using recursion
+ * @num: The positive number  to print
  *
- * Return: Nombre de caractères affichés
+ * Return: The number of characters printed
  */
 int print_number(unsigned int num)
 {
