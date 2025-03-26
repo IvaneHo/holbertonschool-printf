@@ -73,10 +73,10 @@ int handle_format(const char *format, va_list args, int i, int *count)
 }
 
 /**
- * _printf - Affiche une chaîne formatée
- * @format: chaîne contenant texte + formats
+ * _printf - Prints a formatted string
+ * @format: A string containing text and format specifiers
  *
- * Return: nombre de caractères affichés, ou -1 si erreur
+ * Return: The total of characters printed, or -1 on error
  */
 int _printf(const char *format, ...)
 {
