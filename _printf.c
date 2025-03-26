@@ -1,11 +1,10 @@
 #include "main.h"
 
 /**
- * print_char - Prints a char
- * @args: A list of arguments pointing to 
- *			the character to be printed
+ * print_char - Prints a single char
+ * @args: A list of arguments containing the character to print
  *
- * Return: 1
+ * Return: Always returns 1
  */
 int print_char(va_list args)
 {
@@ -15,11 +14,10 @@ int print_char(va_list args)
 }
 
 /**
- * print_string - Prints a string
- * @args: A list of arguments pointing to
- * 			the string to be printed
+ * print_string - Prints a string to standard output
+ * @args: A list of arguments containing the string to print
  *
- * Return: nombre de caractères affichés
+ * Return: The number of characters printed
  */
 int print_string(va_list args)
 {
@@ -37,7 +35,7 @@ int print_string(va_list args)
 }
 
 /**
- * print_percent - Affiche le caractère %
+ * print_percent - Prints a character %
  *
  * Return: 1
  */
@@ -48,10 +46,10 @@ int print_percent(void)
 
 /**
  * handle_format - Gère les formats %c, %s, %, %d, %i
- * @format: chaîne format
- * @args: liste d'arguments
- * @i: position actuelle
- * @count: compteur de caractères
+ * @format: Character string to print - may contain directives
+ * @args: A va_list argument
+ * @i: current position
+ * @count: count of character
  *
  * Return: nouvelle position dans format
  */
