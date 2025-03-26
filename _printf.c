@@ -35,9 +35,9 @@ int print_string(va_list args)
 }
 
 /**
- * print_percent - Prints a character %
+ * print_percent - Prints the '%' character 
  *
- * Return: 1
+ * Return: Always return 1
  */
 int print_percent(void)
 {
@@ -45,13 +45,13 @@ int print_percent(void)
 }
 
 /**
- * handle_format - Gère les formats %c, %s, %, %d, %i
- * @format: Character string to print - may contain directives
- * @args: A va_list argument
- * @i: current position
- * @count: count of character
+ * handle_format - handles format specifiers %c, %s, %, %d, %i
+ * @format: The format string containing directive
+ * @args: The list arguments to process
+ * @i: The current position in the format string
+ * @count: A pointer to the total character count printed
  *
- * Return: nouvelle position dans format
+ * Return: The updated position in the format string
  */
 int handle_format(const char *format, va_list args, int i, int *count)
 {
