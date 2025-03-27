@@ -38,3 +38,4 @@ _printf("Hello %s!\n", "world");       // Affiche "Hello world!"
 _printf("Value: %d\n", 42);            // Affiche "Value: 42"
 _printf("Percent: %%\n");              // Affiche "Percent: %"
 ```
+![FlowChartFinal](https://github.com/user-attachments/assets/87c9d0ce-5b70-45b4-8723-ad14e563e9a9)
