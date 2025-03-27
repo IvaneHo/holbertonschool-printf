@@ -8,7 +8,7 @@ Il s'agit d'un exercice fondamental permettant de comprendre :
 - le traitement des arguments variadiques (`va_list`, `va_start`, etc.)
 - la gestion de chaînes de format
 - l'affichage caractère par caractère à l'aide de `write`
-- l'organisation d'un projet C structuré et conforme aux normes Holberton
+- l'organisation d'un projet C structuré et conforme au style Betty
 
 ---
 
