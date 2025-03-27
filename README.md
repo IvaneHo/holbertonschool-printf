@@ -37,3 +37,9 @@ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c test/main.c -o pr
 _printf("Hello %s!\n", "world");       // Affiche "Hello world!"
 _printf("Value: %d\n", 42);            // Affiche "Value: 42"
 _printf("Percent: %%\n");              // Affiche "Percent: %"
+
+---
+
+
+
+
