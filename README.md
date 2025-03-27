@@ -98,7 +98,7 @@ valgrind ./printf
 
 ---
 
-## 👨‍💻 Auteur
+## 👨‍💻 Auteurs
 
 - Arnaud Lanoizele - Ivane Bagashvili — Projet PRINTF Holberton School — Mars 2025
 
