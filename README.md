@@ -1,4 +1,4 @@
-# <p align="center">Holbertonschool-printf</p> 
+# <p align="center">![holbertonschool_printf_animation_fixed](https://github.com/user-attachments/assets/71e04e52-d6e6-49bc-9fe3-87ac1a400223)</p> 
                              
 ## 📌 Description
 
