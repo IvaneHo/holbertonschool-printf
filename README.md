@@ -37,9 +37,3 @@ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c test/main.c -o pr
 _printf("Hello %s!\n", "world");       // Affiche "Hello world!"
 _printf("Value: %d\n", 42);            // Affiche "Value: 42"
 _printf("Percent: %%\n");              // Affiche "Percent: %"
-
-
-
-
-
-![FlowChartFinal](https://github.com/user-attachments/assets/37fffae4-d7c6-4c6d-9c4a-ceafb79176c2)
