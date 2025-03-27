@@ -38,4 +38,68 @@ _printf("Hello %s!\n", "world");       // Affiche "Hello world!"
 _printf("Value: %d\n", 42);            // Affiche "Value: 42"
 _printf("Percent: %%\n");              // Affiche "Percent: %"
 ```
+
+---
+
+## 💻 Environnement / Requirements
+
+- Ubuntu 20.04 LTS
+- GCC 9+
+- `valgrind` (pour les tests mémoire)
+- Aucun printf autorisé dans les fichiers sources
+- Respect du style **Betty**
+- Pas de variables globales
+
+---
+
+
+## 📖 Man Page
+
+Une documentation de type `man` est disponible :
+
+- Fichier : `man_3_printf`
+
+Pour l’afficher dans le terminal :
+
+```bash
+man ./man_3_printf
+```
+
+
+
+
+---
+
+## 🧪 Tests & Vérifications
+
+Un fichier `main.c` dans `test/` compare `_printf()` avec `printf()` pour :
+- vérifier le contenu affiché
+- comparer la valeur de retour
+- tester tous les cas limites (`NULL`, `%` seul, etc.)
+
+### ✅ Valgrind
+
+Pour tester les **fuites mémoire** :
+
+```bash
+valgrind ./printf
+```
+
+✅ Aucun `malloc` n’est utilisé → aucune fuite mémoire si tout est propre.
+
+---
+
+
+
+
 ![FlowChartFinal](https://github.com/user-attachments/assets/87c9d0ce-5b70-45b4-8723-ad14e563e9a9)
+
+
+
+---
+
+## 👨‍💻 Auteur
+
+- Arnaud Lanoizele - Ivane Bagashvili — Projet PRINTF Holberton School — Mars 2025
+
+---
