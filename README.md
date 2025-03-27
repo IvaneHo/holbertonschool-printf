@@ -1,5 +1,4 @@
-# <p align="center">Holbertonsc![FlowChartFinal](https://github.com/user-attachments/assets/07c41e42-f8ab-498c-a0b8-55dae1f95296)
-hool-printf</p> 
+# <p align="center">Holbertonschool-printf</p> 
                              
 ## 📌 Description
 
@@ -38,5 +37,8 @@ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c test/main.c -o pr
 _printf("Hello %s!\n", "world");       // Affiche "Hello world!"
 _printf("Value: %d\n", 42);            // Affiche "Value: 42"
 _printf("Percent: %%\n");              // Affiche "Percent: %"
+
+
+![FlowChartFinal](https://github.com/user-attachments/assets/07c41e42-f8ab-498c-a0b8-55dae1f95296)
 
 
