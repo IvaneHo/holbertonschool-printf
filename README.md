@@ -18,12 +18,12 @@ Il s'agit d'un exercice fondamental permettant de comprendre :
 int _printf(const char *format, ...);
 
 🧩 Spécificateurs actuellement pris en charge
-Format	Description
-%c	Affiche un caractère
-%s	Affiche une chaîne
-%%	Affiche le caractère %
-%d	Affiche un entier signé
-%i	Identique à %d
+
+Formats pris en charge :
+- `%c` : Affiche un caractère
+- `%s` : Affiche une chaîne de caractères
+- `%%` : Affiche le caractère %
+- `%d`, `%i` : Affiche les entiers signés
 ⚙️ Compilation
 
 Tous les fichiers sont compilés avec :
