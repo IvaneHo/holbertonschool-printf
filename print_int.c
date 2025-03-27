@@ -1,10 +1,14 @@
 #include "main.h"
 
 /**
- * print_int - Prints a signed integer in decimal format (%d or %i)
- * @args: List of arguments containing the integer to print
+ * print_int - Affiche un entier signé (format %d ou %i)
+ * @args: Liste d'arguments contenant l'entier à afficher
  *
- * Return: Number of characters printed (including the '-' sign if applicable)
+ * Récupère un entier depuis la liste d'arguments. Si l'entier est
+ * négatif, affiche d'abord '-' puis travaille avec sa valeur positive.
+ * Utilise print_number() pour afficher chaque chiffre.
+ *
+ * Return: Nombre total de caractères affichés (y compris '-' si négatif)
  */
 int print_int(va_list args)
 {
@@ -15,28 +19,35 @@ int print_int(va_list args)
 	if (n < 0)
 	{
 		count += _putchar('-');
-		num = -n;
+		num = -n; /* Convertit en positif */
 	}
 	else
+	{
 		num = n;
+	}
 
 	count += print_number(num);
 	return (count);
 }
 
 /**
- * print_number - Prints an unsigned integer using recursion
- * @num: The positive number  to print
+ * print_number - Affiche un entier non signé récursivement
+ * @num: Nombre positif à afficher
  *
- * Return: The number of characters printed
+ * Divise récursivement le nombre pour afficher les chiffres
+ * de gauche à droite. Utilise _putchar pour chaque chiffre.
+ *
+ * Return: Nombre total de caractères affichés
  */
 int print_number(unsigned int num)
 {
 	int count = 0;
 
 	if (num / 10)
-		count += print_number(num / 10);
+	{
+		count += print_number(num / 10); /* Appelle récursive si > 9 */
+	}
 
-	count += _putchar((num % 10) + '0');
+	count += _putchar((num % 10) + '0'); /* Affiche le dernier chiffre */
 	return (count);
 }

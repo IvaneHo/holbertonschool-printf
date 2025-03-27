@@ -1,10 +1,13 @@
 #include "main.h"
 
 /**
- * print_char - Prints a single char
- * @args: A list of arguments containing the character to print
+ * print_char - Affiche un caractère (format %c)
+ * @args: Liste d'arguments contenant le caractère à afficher
  *
- * Return: Always returns 1
+ * Cette fonction récupère un entier promu (char -> int) depuis la liste
+ * d'arguments, puis l'affiche via _putchar().
+ *
+ * Return: Toujours 1 (car 1 seul caractère est affiché)
  */
 int print_char(va_list args)
 {
@@ -14,10 +17,13 @@ int print_char(va_list args)
 }
 
 /**
- * print_string - Prints a string to standard output
- * @args: A list of arguments containing the string to print
+ * print_string - Affiche une chaîne de caractères (format %s)
+ * @args: Liste d'arguments contenant la chaîne à afficher
  *
- * Return: The number of characters printed
+ * Si la chaîne est NULL, affiche "(null)".
+ * Parcourt chaque caractère de la chaîne et l'affiche avec _putchar().
+ *
+ * Return: Le nombre total de caractères affichés
  */
 int print_string(va_list args)
 {
@@ -26,6 +32,7 @@ int print_string(va_list args)
 
 	if (str == NULL)
 		str = "(null)";
+
 	while (str[i])
 	{
 		_putchar(str[i]);
@@ -35,9 +42,11 @@ int print_string(va_list args)
 }
 
 /**
- * print_percent - Prints the '%' character 
+ * print_percent - Affiche simplement un '%'
  *
- * Return: Always return 1
+ * Utilisé quand on rencontre "%%" dans la chaîne de format.
+ *
+ * Return: Toujours 1
  */
 int print_percent(void)
 {
@@ -45,13 +54,16 @@ int print_percent(void)
 }
 
 /**
- * handle_format - handles format specifiers %c, %s, %, %d, %i
- * @format: The format string containing directive
- * @args: The list arguments to process
- * @i: The current position in the format string
- * @count: A pointer to the total character count printed
+ * handle_format - Gère les directives de format (à partir du caractère '%')
+ * @format: Chaîne contenant le format complet
+ * @args: Liste d'arguments à lire (va_list)
+ * @i: Position actuelle dans la chaîne
+ * @count: Pointeur vers le compteur total de caractères affichés
  *
- * Return: The updated position in the format string
+ * Détecte le caractère suivant après '%' et appelle la fonction appropriée
+ * selon que ce soit 'c', 's', '%', 'd', 'i', ou caractère inconnu.
+ *
+ * Return: La nouvelle position à utiliser dans la boucle principale (_printf)
  */
 int handle_format(const char *format, va_list args, int i, int *count)
 {
@@ -65,6 +77,7 @@ int handle_format(const char *format, va_list args, int i, int *count)
 		*count += print_int(args);
 	else
 	{
+		/* Si le caractère après % est inconnu, afficher % + le caractère */
 		_putchar('%');
 		_putchar(format[i + 1]);
 		*count += 2;
@@ -73,10 +86,15 @@ int handle_format(const char *format, va_list args, int i, int *count)
 }
 
 /**
- * _printf - Prints a formatted string
- * @format: A string containing text and format specifiers
+ * _printf - Fonction principale réimplémentant printf
+ * @format: Chaîne de format contenant texte et directives (%...)
  *
- * Return: The total of characters printed, or -1 on error
+ * Gère les arguments variables, appelle les fonctions selon les formats
+ * (%c, %s, %%, %d, %i), et affiche le résultat caractère par caractère.
+ * Utilise une boucle sur chaque caractère de la chaîne de format.
+ * Si un pourcentage est détecté, appelle handle_format().
+ *
+ * Return: Nombre total de caractères affichés, ou -1 en cas d'erreur
  */
 int _printf(const char *format, ...)
 {
@@ -87,6 +105,7 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(args, format);
+
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -105,6 +124,7 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+
 	va_end(args);
 	return (count);
 }
